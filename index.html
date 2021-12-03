@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Slider</title>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="root">
+        <div class="app-container">
+            <!-- SLIDER -->
+            <div class="slider">
+    
+                <!-- BIG IMAGE -->
+                <div class="big-image-container">
+    
+                    <!-- Single Image -->
+                    <div class="single-image">
+                        <img :src="slides[activeSlide].image" :alt="slides[activeSlide].title">
+    
+                        <!-- Single Text -->
+                        <div class="single-image-text">
+                            <h3>{{slides[activeSlide].title}}</h3>
+                            <p>{{slides[activeSlide].text}}</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- THUMBS -->
+                <div class="thumbs">
+    
+                    <!-- Single Thumb -->
+                    <div v-for="element, index in slides" class="single-thumb" :class="{'active': index === activeSlide}">
+                        <img :src="element.image" :alt="element.title">
+                    </div>
+    
+                    <!-- Arrow up -->
+                    <div @click="prevSlide" class="arrow prev">
+                        <i class="fas fa-chevron-up"></i>
+                    </div>
+    
+                    <!-- Arrow down -->
+                    <div @click="nextSlide" class="arrow next">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- END SLIDER --> 
+        </div>      
+    </div>
+
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
