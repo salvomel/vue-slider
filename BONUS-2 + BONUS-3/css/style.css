@@ -19,6 +19,7 @@
     width: 60%;
     height: 50%;
     display: flex;
+    cursor: pointer;
 }
 
 /* Images container */

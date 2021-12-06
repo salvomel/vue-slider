@@ -56,8 +56,18 @@ const app = new Vue(
             },
             autoPlay: function () {
                 this.counterClock = setInterval(() => {
-                    this.activeSlide++; 
+                    
+                    // Autoplay riparte dall'inizio dopo l'ultima foto
+                    if(this.activeSlide < this.slides.length - 1) {
+                        this.activeSlide++; 
+                    } else {
+                        this.activeSlide = 0;
+                    }
+
                 }, 3000);
+            },
+            stopAutoPlay: function () {
+                clearInterval(this.counterClock);
             }
         },
         created: function () {
